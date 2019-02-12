@@ -1,0 +1,57 @@
+{
+  "name": "mockmen",
+  "version": "0.1.0",
+  "description": "A mock server for Visual Studio Code",
+  "homepage": "https://github.com/zce/mockmen#readme",
+  "bugs": {
+    "url": "https://github.com/zce/mockmen/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zce/mockmen.git"
+  },
+  "license": "MIT",
+  "author": "zce <w@zce.me> (https://zce.me)",
+  "main": "./out/extension.js",
+  "scripts": {
+    "compile": "tsc -p ./",
+    "postinstall": "node ./node_modules/vscode/bin/install",
+    "test": "yarn run compile && node ./node_modules/vscode/bin/test",
+    "vscode:prepublish": "yarn run compile",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/browser-sync": "^0.0.42",
+    "@types/mocha": "^5.2.5",
+    "@types/node": "^11.9.0",
+    "tslint": "^5.12.1",
+    "typescript": "^3.3.1",
+    "vscode": "^1.1.28"
+  },
+  "engines": {
+    "vscode": "^1.31.0"
+  },
+  "activationEvents": [
+    "onCommand:extension.mockmen.start",
+    "onCommand:extension.mockmen.stop"
+  ],
+  "categories": [
+    "Other"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "extension.mockmen.start",
+        "title": "Start Mockmen Server"
+      },
+      {
+        "command": "extension.mockmen.stop",
+        "title": "Stop Mockmen Server"
+      }
+    ]
+  },
+  "displayName": "Mockmen",
+  "dependencies": {
+    "browser-sync": "^2.26.3"
+  }
+}
